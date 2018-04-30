@@ -1,15 +1,14 @@
-export const fetchChuckNorrisMessage = () => {
-    console.log("fetch")
+export const searchItem = (query) => {
+    console.log('https://api.chucknorris.io/jokes/search?query=' + query)
     return dispatch => {
-        return fetch('https://api.chucknorris.io/jokes/random')
+        return fetch('https://api.chucknorris.io/jokes/search?query=' + query)
             .then((response) => response.json())
             .then((json) => {
                 dispatch(
                     {
                         type: 'FETCH_SUCCESS',
-                        id: json.id,
-                        icon_url: json.icon_url,
-                        message: json.value
+                        total: json.total,
+                        result: json.result,
                     }
                 )
             })
@@ -18,3 +17,4 @@ export const fetchChuckNorrisMessage = () => {
             });
     }
 }
+

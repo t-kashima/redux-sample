@@ -1,12 +1,14 @@
-export const date = (state = {items: []}, action) => {
+export const date = (state = {item: {}}, action) => {
     console.log('reducer');
     switch (action.type) {
-        case 'ADD_DATE':
-            let items = Object.assign([], state.items)
-            items.push(action.date)
-            return {...state, items: items};
+        case 'FETCH_SUCCESS':
+            return {...state, item: {
+                id: action.id,
+                icon_url: action.icon_url, 
+                message: action.message
+            }};
         case 'CLEAR_DATE':
-            return {...state, items: []};
+            return {...state, item: {}};
         default:
             return state;
     }
