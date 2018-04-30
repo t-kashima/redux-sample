@@ -6,7 +6,7 @@ import BookContainer from './app/containers/BookContainer';
 const App = () => (
   <Router>
     <Scene key="root">
-      <Scene key="book" component={BookContainer} initial={true} />
+      <Scene key="book" component={BookContainer} title="本の紹介" initial={true} />
     </Scene>
   </Router>
 );
